@@ -32,19 +32,20 @@ int findCenter(vector<vector<int>>& edges) {
 }
 
 // code AI
-int findCenter(vector<vector<int>>& edges) {
-    // The center node must appear in both edges[0] and edges[1].
-    // Let's check if the first node of the first edge matches 
-    // either node in the second edge.
-    if (edges[0][0] == edges[1][0] || edges[0][0] == edges[1][1]) {
-        return edges[0][0];
-    }
+// int findCenter(vector<vector<int>>& edges) {
+//     // The center node must appear in both edges[0] and edges[1].
+//     // Let's check if the first node of the first edge matches 
+//     // either node in the second edge.
+//     if (edges[0][0] == edges[1][0] || edges[0][0] == edges[1][1]) {
+//         return edges[0][0];
+//     }
     
-    // If it doesn't match, the second node of the first edge MUST be the center.
-    return edges[0][1];
-}
+//     // If it doesn't match, the second node of the first edge MUST be the center.
+//     return edges[0][1];
+// }
 
 int main(){
-    vector<vector<int>> edges = {{1,2},{5,1},{1,3},{1,4}};
+    // vector<vector<int>> edges = {{1,2},{5,1},{1,3},{1,4}};
+    vector<vector<int>> edges = {{1,2},{5,2},{1,3},{1,4}};
     cout << findCenter(edges);
 }
