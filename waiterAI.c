@@ -14,9 +14,9 @@ int main() {
     
     scanf("%d %d", &n, &q);
     
-    int *a = (int *)malloc(n * sizeof(int));
-    int *b = (int *)malloc(n * sizeof(int));
-    int *temp_a = (int *)malloc(n * sizeof(int));
+    int *a = (int *)malloc(n * sizeof(int));       // Memesan memori dinamis untuk n integer
+    int *b = (int *)malloc(n * sizeof(int));       // Array dinamis untuk angka yang habis dibagi prima
+    int *temp_a = (int *)malloc(n * sizeof(int));  // Array sementara untuk angka yang tidak habis dibagi
     
     for (int i = 0; i < n; i++) {
         scanf("%d", &a[i]);
@@ -31,7 +31,7 @@ int main() {
         }
         num++;
     }
-
+    printf("\nOUTPUT\n");
     for (int i = 0; i < q; i++) {
         int b_size = 0;
         int temp_a_size = 0;
@@ -58,9 +58,9 @@ int main() {
         printf("%d\n", a[j]);
     }
 
-    free(a);
-    free(b);
-    free(temp_a);
+    free(a);       // Membebaskan memori array a dari mallocnya
+    free(b);       // Membebaskan memori array b dari mallocnya
+    free(temp_a);  // Membebaskan memori array temp_a dari mallocnya
 
     return 0;
 }
