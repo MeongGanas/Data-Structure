@@ -1,41 +1,35 @@
 #include <iostream>
-#include <stack>
 #include <queue>
 using namespace std;
 
-// (Fungsi rev() yang sudah kamu buat biarkan di sini)
-queue<int> rev(queue<int> q) {
-    stack<int> s;
-    while (!q.empty()) {
-        s.push(q.front());
-        q.pop();
-    }
-    while (!s.empty()) {
-        q.push(s.top());
-        s.pop();
-    }
-    return q;
+void reverseQueue(queue<int>& q) {
+
+    if (q.empty()) return;
+
+    // remove front element
+    int front = q.front();
+    q.pop();
+
+    // reverse remaining queue
+    reverseQueue(q);
+
+    // insert removed element at the rear
+    q.push(front);
 }
 
-// Tambahkan blok ini agar bisa di-Run di VS Code
 int main() {
-    queue<int> antrean_awal;
-    
-    // Masukkan data contoh: 4, 3, 1
-    antrean_awal.push(4);
-    antrean_awal.push(3);
-    antrean_awal.push(1);
+    queue<int> q;
+    q.push(5);
+    q.push(10);
+    q.push(15);
+    q.push(20);
+    q.push(25);
 
-    // Panggil fungsi rev untuk membalikkan
-    queue<int> hasil = rev(antrean_awal);
+    reverseQueue(q);
 
-    // Tampilkan hasilnya
-    cout << "Hasil antrean terbalik: ";
-    while (!hasil.empty()) {
-        cout << hasil.front() << " ";
-        hasil.pop();
+    while (!q.empty()) {
+        cout << q.front() << " ";
+        q.pop();
     }
-    cout << endl;
-
     return 0;
 }
